@@ -49,8 +49,8 @@ END_MESSAGE_MAP()
 
 CYDLSerialDlg::CYDLSerialDlg(CWnd* pParent /*=NULL*/)
 	: CDialogEx(CYDLSerialDlg::IDD, pParent)
-    , m_EditReceive(_T(""))
-    , m_EditSend(_T(""))
+    , m_EditReceive(L"")
+    , m_EditSend(L"")
 {
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
 }
@@ -236,7 +236,7 @@ void CYDLSerialDlg::OnBnClickedButton1Open()
         m_Mscom.put_PortOpen(true);		//打开串口
         if (m_Mscom.get_PortOpen())
         {
-            str = _T("关闭串口");
+            str = L"关闭串口";
             UpdateData(true);
             h1->SetWindowText(str);			//改变按钮名称为‘’关闭串口”
             //::SetTextColor(GetDlgItem(IDC_BUTTON1_OPEN)->GetDC(), RGB(255, 255, 255));//
@@ -246,9 +246,9 @@ void CYDLSerialDlg::OnBnClickedButton1Open()
     else
     {
         m_Mscom.put_PortOpen(false);
-        if (str != _T("打开串口"))
+        if (str != L"打开串口")
         {
-            str = _T("打开串口");
+            str = L"打开串口";
             UpdateData(true);
             h1->SetWindowText(str);			//改变按钮名称为打开串口
         }
@@ -307,7 +307,7 @@ Others:	nullptr
 void CYDLSerialDlg::OnBnClickedButton3Clean()
 {
     // TODO:  在此添加控件通知处理程序代码
-    m_EditReceive = _T("");	//给接收编辑框发送空格符
+    m_EditReceive = L"";	//给接收编辑框发送空格符
     UpdateData(false);		//更新数据
 
 }
